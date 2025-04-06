@@ -16,10 +16,19 @@ const Home = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (user && user.displayName !== username) {
-      navigate("/unauthorized");
+    if (!user || !user.providerData) {
+      return; // Wait until user is fully loaded
+    }
+  
+    const providerId = user.providerData[0]?.providerId;
+  
+    if (providerId === "google.com") {
+      if (user.displayName !== username) {
+        navigate("/unauthorized");
+      }
     }
   }, [user, username, navigate]);
+  
 
   useEffect(() => {
     const fetchRecentDocuments = async () => {
