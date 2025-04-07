@@ -44,7 +44,6 @@ function App() {
           Secure File Upload
         </h2>
 
-        {/* Encrypt File Section */}
         <div className="space-y-5">
           <div>
             <label className="block mb-2 text-sm font-medium text-gray-700">

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, getRedirectResult } from "firebase/auth";
 import { signInWithGoogle } from "../lib/firebase";
-import Carousel from "../components/Carousel";// important import for carousel styling
+import Carousel from "../components/Carousel";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -52,23 +52,17 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center h-screen  bg-gradient-to-r from-blue-500 to-purple-600">
-      {/* Carousel Section */}
-      <div className="hidden md:flex w-1/2 h-full p-8 items-center justify-center">
+    <div className="flex flex-col md:flex-row items-center justify-center h-screen  bg-gray-100">
+      <div className="hidden md:flex w-1/2 h-[600px] p-8 items-center justify-center">
         <Carousel />
-          </div>
-          
-           
-
-      {/* Login Section */}
-      <div className="flex items-center justify-center md:w-1/2 w-full p-8">
+      </div>
+      <div className="flex items-center justify-center md:w-1/2 w-full h-[600px] p-8">
         <div className="bg-white shadow-lg rounded-2xl p-8 max-w-sm w-full text-center">
           <h1 className="text-3xl font-extrabold text-gray-800 mb-2">LegalSutra</h1>
           <p className="text-gray-600 mb-6">Your trusted legal companion</p>
 
           <h2 className="text-xl font-semibold text-gray-700 mb-4">Sign in</h2>
 
-          {/* Email/Password Login Form */}
           <form onSubmit={handleEmailLogin} className="space-y-4 text-left">
             <input
               type="email"
@@ -97,14 +91,12 @@ const Login = () => {
             </button>
           </form>
 
-          {/* OR separator */}
           <div className="my-4 flex items-center">
             <hr className="flex-grow border-gray-300" />
             <span className="px-2 text-gray-500 text-sm">OR</span>
             <hr className="flex-grow border-gray-300" />
           </div>
 
-          {/* Google Sign-In Button */}
           <button
             onClick={signInWithGoogle}
             className="w-full flex items-center justify-center gap-3 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-300"
@@ -117,7 +109,6 @@ const Login = () => {
             <span>Sign in with Google</span>
           </button>
 
-          {/* Link to Signup page */}
           <p className="text-sm text-gray-600 mt-4">
             Don't have an account?{" "}
             <button

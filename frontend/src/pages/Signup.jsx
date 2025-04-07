@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useAuth } from "../context/AuthContext";
-import Carousel from "../components/Carousel"; // <-- Importing Carousel
+import Carousel from "../components/Carousel";
 
 const Signup = () => {
   const { user } = useAuth();
@@ -47,7 +47,7 @@ const Signup = () => {
 
       console.log("User created successfully with username:", createdUser.displayName);
 
-      navigate("/login"); // Redirect to login page after signup
+      navigate("/login"); 
     } catch (error) {
       console.error("Signup Error:", error.message);
       setErrorMsg(error.message);
@@ -57,16 +57,12 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center h-screen bg-gradient-to-r from-green-400 to-blue-500">
-      
-      {/* Left side - Carousel */}
-      <div className="hidden md:flex w-1/2 h-full p-8 items-center justify-center">
+    <div className="flex flex-col md:flex-row items-center justify-center h-screen bg-gray-100">
+      <div className="hidden md:flex w-1/2 h-[600px] p-8 items-center justify-center">
         <Carousel />
       </div>
-
-      {/* Right side - Signup Form */}
-      <div className="flex items-center justify-center md:w-1/2 w-full p-8">
-        <div className="bg-white shadow-lg rounded-2xl p-8 max-w-sm w-full text-center">
+      <div className="flex items-center justify-center md:w-1/2 w-full h-[600px] p-8">
+        <div className="bg-white shadow-lg rounded-2xl p-8 max-w-sm w-full text-center">    
           <h1 className="text-3xl font-extrabold text-gray-800 mb-2">LegalSutra</h1>
           <p className="text-gray-600 mb-6">Create your account</p>
 
